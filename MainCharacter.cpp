@@ -5,14 +5,14 @@ MainCharacter::MainCharacter(Component * parent) : Component(parent)
 {
 }
 
-void MainCharacter::Load(int time)
+void MainCharacter::load(int time)
 {
-	Component::Load(time);
+    Component::load(time);
 
-	texture_id = SOIL_load_OGL_texture("Sprites//sprite_main_character.png", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_INVERT_Y);
+	texture_id = SOIL_load_OGL_texture("/home/amir/projects/pacman_game/Sprites/sprite_main_character.png", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_INVERT_Y);
 }
 
-void MainCharacter::Update(int time)
+void MainCharacter::update(int time)
 {
 	if (this->is_run) 
 	{
@@ -41,7 +41,7 @@ void MainCharacter::Update(int time)
 	}
 }
 
-void MainCharacter::Render(int time)
+void MainCharacter::render(int time)
 {
 	auto f = (float)(this->frame % 12);
 
@@ -82,7 +82,7 @@ void MainCharacter::Render(int time)
 	glPopMatrix();
 }
 
-void MainCharacter::SetPosition(int x, int y)
+void MainCharacter::setPosition(int x, int y)
 {
 	this->x = x;
 	this->y = y;

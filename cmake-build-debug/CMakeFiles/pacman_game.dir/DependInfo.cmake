@@ -4,6 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/amir/projects/pacman_game/Component.cpp" "/home/amir/projects/pacman_game/cmake-build-debug/CMakeFiles/pacman_game.dir/Component.cpp.o"
+  "/home/amir/projects/pacman_game/Fire.cpp" "/home/amir/projects/pacman_game/cmake-build-debug/CMakeFiles/pacman_game.dir/Fire.cpp.o"
+  "/home/amir/projects/pacman_game/Game.cpp" "/home/amir/projects/pacman_game/cmake-build-debug/CMakeFiles/pacman_game.dir/Game.cpp.o"
+  "/home/amir/projects/pacman_game/MainCharacter.cpp" "/home/amir/projects/pacman_game/cmake-build-debug/CMakeFiles/pacman_game.dir/MainCharacter.cpp.o"
   "/home/amir/projects/pacman_game/main.cpp" "/home/amir/projects/pacman_game/cmake-build-debug/CMakeFiles/pacman_game.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

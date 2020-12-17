@@ -90,17 +90,77 @@ CMakeFiles/pacman_game.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pacman_game.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/amir/projects/pacman_game/main.cpp -o CMakeFiles/pacman_game.dir/main.cpp.s
 
+CMakeFiles/pacman_game.dir/Fire.cpp.o: CMakeFiles/pacman_game.dir/flags.make
+CMakeFiles/pacman_game.dir/Fire.cpp.o: ../Fire.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amir/projects/pacman_game/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/pacman_game.dir/Fire.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pacman_game.dir/Fire.cpp.o -c /home/amir/projects/pacman_game/Fire.cpp
+
+CMakeFiles/pacman_game.dir/Fire.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pacman_game.dir/Fire.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/amir/projects/pacman_game/Fire.cpp > CMakeFiles/pacman_game.dir/Fire.cpp.i
+
+CMakeFiles/pacman_game.dir/Fire.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pacman_game.dir/Fire.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/amir/projects/pacman_game/Fire.cpp -o CMakeFiles/pacman_game.dir/Fire.cpp.s
+
+CMakeFiles/pacman_game.dir/Game.cpp.o: CMakeFiles/pacman_game.dir/flags.make
+CMakeFiles/pacman_game.dir/Game.cpp.o: ../Game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amir/projects/pacman_game/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/pacman_game.dir/Game.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pacman_game.dir/Game.cpp.o -c /home/amir/projects/pacman_game/Game.cpp
+
+CMakeFiles/pacman_game.dir/Game.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pacman_game.dir/Game.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/amir/projects/pacman_game/Game.cpp > CMakeFiles/pacman_game.dir/Game.cpp.i
+
+CMakeFiles/pacman_game.dir/Game.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pacman_game.dir/Game.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/amir/projects/pacman_game/Game.cpp -o CMakeFiles/pacman_game.dir/Game.cpp.s
+
+CMakeFiles/pacman_game.dir/MainCharacter.cpp.o: CMakeFiles/pacman_game.dir/flags.make
+CMakeFiles/pacman_game.dir/MainCharacter.cpp.o: ../MainCharacter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amir/projects/pacman_game/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/pacman_game.dir/MainCharacter.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pacman_game.dir/MainCharacter.cpp.o -c /home/amir/projects/pacman_game/MainCharacter.cpp
+
+CMakeFiles/pacman_game.dir/MainCharacter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pacman_game.dir/MainCharacter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/amir/projects/pacman_game/MainCharacter.cpp > CMakeFiles/pacman_game.dir/MainCharacter.cpp.i
+
+CMakeFiles/pacman_game.dir/MainCharacter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pacman_game.dir/MainCharacter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/amir/projects/pacman_game/MainCharacter.cpp -o CMakeFiles/pacman_game.dir/MainCharacter.cpp.s
+
+CMakeFiles/pacman_game.dir/Component.cpp.o: CMakeFiles/pacman_game.dir/flags.make
+CMakeFiles/pacman_game.dir/Component.cpp.o: ../Component.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amir/projects/pacman_game/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/pacman_game.dir/Component.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pacman_game.dir/Component.cpp.o -c /home/amir/projects/pacman_game/Component.cpp
+
+CMakeFiles/pacman_game.dir/Component.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pacman_game.dir/Component.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/amir/projects/pacman_game/Component.cpp > CMakeFiles/pacman_game.dir/Component.cpp.i
+
+CMakeFiles/pacman_game.dir/Component.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pacman_game.dir/Component.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/amir/projects/pacman_game/Component.cpp -o CMakeFiles/pacman_game.dir/Component.cpp.s
+
 # Object files for target pacman_game
 pacman_game_OBJECTS = \
-"CMakeFiles/pacman_game.dir/main.cpp.o"
+"CMakeFiles/pacman_game.dir/main.cpp.o" \
+"CMakeFiles/pacman_game.dir/Fire.cpp.o" \
+"CMakeFiles/pacman_game.dir/Game.cpp.o" \
+"CMakeFiles/pacman_game.dir/MainCharacter.cpp.o" \
+"CMakeFiles/pacman_game.dir/Component.cpp.o"
 
 # External object files for target pacman_game
 pacman_game_EXTERNAL_OBJECTS =
 
 pacman_game: CMakeFiles/pacman_game.dir/main.cpp.o
+pacman_game: CMakeFiles/pacman_game.dir/Fire.cpp.o
+pacman_game: CMakeFiles/pacman_game.dir/Game.cpp.o
+pacman_game: CMakeFiles/pacman_game.dir/MainCharacter.cpp.o
+pacman_game: CMakeFiles/pacman_game.dir/Component.cpp.o
 pacman_game: CMakeFiles/pacman_game.dir/build.make
 pacman_game: CMakeFiles/pacman_game.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/amir/projects/pacman_game/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable pacman_game"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/amir/projects/pacman_game/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable pacman_game"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pacman_game.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

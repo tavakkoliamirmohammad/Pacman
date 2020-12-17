@@ -143,6 +143,114 @@ pacman_game/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pacman_game.dir/build.make CMakeFiles/pacman_game.dir/build
 .PHONY : pacman_game/fast
 
+Component.o: Component.cpp.o
+
+.PHONY : Component.o
+
+# target to build an object file
+Component.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pacman_game.dir/build.make CMakeFiles/pacman_game.dir/Component.cpp.o
+.PHONY : Component.cpp.o
+
+Component.i: Component.cpp.i
+
+.PHONY : Component.i
+
+# target to preprocess a source file
+Component.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pacman_game.dir/build.make CMakeFiles/pacman_game.dir/Component.cpp.i
+.PHONY : Component.cpp.i
+
+Component.s: Component.cpp.s
+
+.PHONY : Component.s
+
+# target to generate assembly for a file
+Component.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pacman_game.dir/build.make CMakeFiles/pacman_game.dir/Component.cpp.s
+.PHONY : Component.cpp.s
+
+Fire.o: Fire.cpp.o
+
+.PHONY : Fire.o
+
+# target to build an object file
+Fire.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pacman_game.dir/build.make CMakeFiles/pacman_game.dir/Fire.cpp.o
+.PHONY : Fire.cpp.o
+
+Fire.i: Fire.cpp.i
+
+.PHONY : Fire.i
+
+# target to preprocess a source file
+Fire.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pacman_game.dir/build.make CMakeFiles/pacman_game.dir/Fire.cpp.i
+.PHONY : Fire.cpp.i
+
+Fire.s: Fire.cpp.s
+
+.PHONY : Fire.s
+
+# target to generate assembly for a file
+Fire.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pacman_game.dir/build.make CMakeFiles/pacman_game.dir/Fire.cpp.s
+.PHONY : Fire.cpp.s
+
+Game.o: Game.cpp.o
+
+.PHONY : Game.o
+
+# target to build an object file
+Game.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pacman_game.dir/build.make CMakeFiles/pacman_game.dir/Game.cpp.o
+.PHONY : Game.cpp.o
+
+Game.i: Game.cpp.i
+
+.PHONY : Game.i
+
+# target to preprocess a source file
+Game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pacman_game.dir/build.make CMakeFiles/pacman_game.dir/Game.cpp.i
+.PHONY : Game.cpp.i
+
+Game.s: Game.cpp.s
+
+.PHONY : Game.s
+
+# target to generate assembly for a file
+Game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pacman_game.dir/build.make CMakeFiles/pacman_game.dir/Game.cpp.s
+.PHONY : Game.cpp.s
+
+MainCharacter.o: MainCharacter.cpp.o
+
+.PHONY : MainCharacter.o
+
+# target to build an object file
+MainCharacter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pacman_game.dir/build.make CMakeFiles/pacman_game.dir/MainCharacter.cpp.o
+.PHONY : MainCharacter.cpp.o
+
+MainCharacter.i: MainCharacter.cpp.i
+
+.PHONY : MainCharacter.i
+
+# target to preprocess a source file
+MainCharacter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pacman_game.dir/build.make CMakeFiles/pacman_game.dir/MainCharacter.cpp.i
+.PHONY : MainCharacter.cpp.i
+
+MainCharacter.s: MainCharacter.cpp.s
+
+.PHONY : MainCharacter.s
+
+# target to generate assembly for a file
+MainCharacter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pacman_game.dir/build.make CMakeFiles/pacman_game.dir/MainCharacter.cpp.s
+.PHONY : MainCharacter.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -179,6 +287,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... pacman_game"
+	@echo "... Component.o"
+	@echo "... Component.i"
+	@echo "... Component.s"
+	@echo "... Fire.o"
+	@echo "... Fire.i"
+	@echo "... Fire.s"
+	@echo "... Game.o"
+	@echo "... Game.i"
+	@echo "... Game.s"
+	@echo "... MainCharacter.o"
+	@echo "... MainCharacter.i"
+	@echo "... MainCharacter.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

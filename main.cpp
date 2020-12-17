@@ -1,4 +1,5 @@
 #include "Game.h"
+#include <GL/glut.h>
 
 Game game;
 
@@ -7,8 +8,8 @@ void render()
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	int time = glutGet(GLUT_ELAPSED_TIME);
-	game.Update(time);
-	game.Render(time);
+    game.update(time);
+    game.render(time);
 
 	glutSwapBuffers();
 }
@@ -24,7 +25,7 @@ void init()
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	game.Load(time);
+    game.load(time);
 }
 
 void keyboard(int key, int x, int y)
@@ -59,7 +60,7 @@ void reshape(int width, int height)
 	glViewport(0, 0, width, height);
 }
 
-void main(int argc, char** argv)
+int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);

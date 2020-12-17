@@ -9,9 +9,9 @@ public:
 	Game();
 	~Game();
 
-	void Load(int time);
-	void Update(int time);
-	void Render(int time);
+	void load(int time);
+	void update(int time);
+	void render(int time);
 
 	void keyboard(int time, int key, int x, int y);
 	void keyboard_up(int time, int key, int x, int y);

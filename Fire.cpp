@@ -1,16 +1,15 @@
 #include "Fire.h"
 #include "SOIL.h"
 
-Fire::Fire(Component * parent): Component(parent)
-{
-	init_frame = ((double)rand() / (RAND_MAX)) * 64;
+Fire::Fire(Component *parent) : Component(parent) {
+    init_frame = ((double) rand() / (RAND_MAX)) * 64;
 }
 
-void Fire::Load(int time)
-{
-	Component::Load(time);
+void Fire::load(int time) {
+    Component::load(time);
 
-	texture_id = SOIL_load_OGL_texture("Sprites//sprite_fire.png", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_INVERT_Y);
+    texture_id = SOIL_load_OGL_texture("/home/amir/projects/pacman_game/Sprites/sprite_fire.png", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID,
+                                       SOIL_FLAG_INVERT_Y);
 /*
 	int tx_width, tx_height;
 
@@ -27,38 +26,39 @@ void Fire::Load(int time)
 	SOIL_free_image_data(tx_fire);*/
 }
 
-void Fire::Update(int time)
-{	
-	frame = init_frame + (time - created_time) / 50;
+void Fire::update(int time) {
+    frame = init_frame + (time - created_time) / 50;
 }
 
-void Fire::Render(int time)
-{
-	auto w_h = (float)(frame % 8);
-	auto w_v = (float)(int)((frame % 64) / 8) + 1;
+void Fire::render(int time) {
+    auto w_h = (float) (frame % 8);
+    auto w_v = (float) (int) ((frame % 64) / 8) + 1;
 
-	auto tx_w = 1024.0 / 8.0;
-	auto tx_h = 1024.0 / 8.0;
-	auto tx_x = w_h / 8.0;
-	auto tx_y = 1 - w_v / 8.0;
+    auto tx_w = 1024.0 / 8.0;
+    auto tx_h = 1024.0 / 8.0;
+    auto tx_x = w_h / 8.0;
+    auto tx_y = 1 - w_v / 8.0;
 
-	glBindTexture(GL_TEXTURE_2D, texture_id);
+    glBindTexture(GL_TEXTURE_2D, texture_id);
 
-	glPushMatrix();
-	glTranslatef(this->x, this->y, 0);
+    glPushMatrix();
+    glTranslatef(this->x, this->y, 0);
 
-	glBegin(GL_POLYGON);
-	glTexCoord2f(tx_x, tx_y); glVertex2f(0, 0);
-	glTexCoord2f(tx_x + 1.0 / 8.0, tx_y); glVertex2f(tx_w, 0);
-	glTexCoord2f(tx_x + 1.0 / 8.0, tx_y + 1.0 / 8.0); glVertex2f(tx_w, tx_h);
-	glTexCoord2f(tx_x, tx_y + 1.0 / 8.0); glVertex2f(0, tx_h);
-	glEnd();
+    glBegin(GL_POLYGON);
+    glTexCoord2f(tx_x, tx_y);
+    glVertex2f(0, 0);
+    glTexCoord2f(tx_x + 1.0 / 8.0, tx_y);
+    glVertex2f(tx_w, 0);
+    glTexCoord2f(tx_x + 1.0 / 8.0, tx_y + 1.0 / 8.0);
+    glVertex2f(tx_w, tx_h);
+    glTexCoord2f(tx_x, tx_y + 1.0 / 8.0);
+    glVertex2f(0, tx_h);
+    glEnd();
 
-	glPopMatrix();
+    glPopMatrix();
 }
 
-void Fire::SetPosition(int x, int y)
-{
-	this->x = x;
-	this->y = y;
+void Fire::setPosition(int x, int y) {
+    this->x = x;
+    this->y = y;
 }

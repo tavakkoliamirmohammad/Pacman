@@ -82,6 +82,30 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/amir/projects/pacman_game/Component.cpp">
+			<Option target="pacman_game"/>
+		</Unit>
+		<Unit filename="/home/amir/projects/pacman_game/Component.h">
+			<Option target="pacman_game"/>
+		</Unit>
+		<Unit filename="/home/amir/projects/pacman_game/Fire.cpp">
+			<Option target="pacman_game"/>
+		</Unit>
+		<Unit filename="/home/amir/projects/pacman_game/Fire.h">
+			<Option target="pacman_game"/>
+		</Unit>
+		<Unit filename="/home/amir/projects/pacman_game/Game.cpp">
+			<Option target="pacman_game"/>
+		</Unit>
+		<Unit filename="/home/amir/projects/pacman_game/Game.h">
+			<Option target="pacman_game"/>
+		</Unit>
+		<Unit filename="/home/amir/projects/pacman_game/MainCharacter.cpp">
+			<Option target="pacman_game"/>
+		</Unit>
+		<Unit filename="/home/amir/projects/pacman_game/MainCharacter.h">
+			<Option target="pacman_game"/>
+		</Unit>
 		<Unit filename="/home/amir/projects/pacman_game/main.cpp">
 			<Option target="pacman_game"/>
 		</Unit>

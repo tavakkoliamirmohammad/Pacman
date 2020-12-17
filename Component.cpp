@@ -7,7 +7,7 @@ Component::Component(Component* parent)
 	else game = NULL;
 }
 
-void Component::Load(int time)
+void Component::load(int time)
 {
-	created_time = time;
+    created_time = time;
 }
