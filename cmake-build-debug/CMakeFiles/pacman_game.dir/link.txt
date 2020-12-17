@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/pacman_game.dir/main.cpp.o CMakeFiles/pacman_game.dir/Fire.cpp.o CMakeFiles/pacman_game.dir/Game.cpp.o CMakeFiles/pacman_game.dir/MainCharacter.cpp.o CMakeFiles/pacman_game.dir/Component.cpp.o  -o pacman_game  -lglut -lSOIL -lGL -lGLU 
