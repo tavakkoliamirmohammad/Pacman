@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "Fire.h"
 #include "Score.h"
+#include "Ghost.h"
 #include <iostream>
 
 using namespace std;
@@ -25,6 +26,14 @@ void Game::load(int time) {
         components.push_back(score);
     }
 
+    for (int i = 0; i < 5; i++) {
+        Ghost *ghost = new Ghost(this);
+        float x = (i + 1) * 200;
+        float y = (i + 1) * 140;
+        ghost->setPosition(x, y);
+        components.push_back(ghost);
+    }
+
     for (auto &component : components)
         component->load(time);
 }
@@ -33,9 +42,14 @@ void Game::update(int time) {
     for (auto &component : components)
         component->update(time);
     Score *score;
+    Ghost *ghost;
     for (auto iter = components.begin(); iter != components.end(); iter++) {
         if ((score = dynamic_cast<Score *>(*iter)) != nullptr) {
             if (abs(main_character->getX() - score->getX()) < 25 && abs(main_character->getY() - score->getY()) < 25) {
+                components.erase(iter--);
+            }
+        } else if ((ghost = dynamic_cast<Ghost *>(*iter)) != nullptr) {
+            if (abs(main_character->getX() - ghost->getX()) < 25 && abs(main_character->getY() - ghost->getY()) < 25) {
                 components.erase(iter--);
             }
         }

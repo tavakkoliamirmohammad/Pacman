@@ -33,7 +33,6 @@ private:
 
     int start_move_time;
     CharacterDirection direction;
-    bool is_run = false;
 };
 
 
