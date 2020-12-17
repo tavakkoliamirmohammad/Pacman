@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "Fire.h"
+#include "Score.h"
 
 Game::Game() : Component(NULL) {
     this->game = this;
@@ -9,21 +10,17 @@ Game::~Game() {
 }
 
 void Game::load(int time) {
-    this->main_character = new MainCharacter(this);
+    this->main_character = new Pacman(this);
     this->main_character->setPosition(500, 500);
     components.push_back(this->main_character);
 
-    for (int i = 0; i < 20; i++) {
-        Fire *fire = new Fire(this);
-        fire->setPosition(100 * i, 0);
-        components.push_back(fire);
-
+    for (int i = 0; i < 5; i++) {
+        Score *score = new Score(this);
+        float x = ((double) rand() / (RAND_MAX)) * 1000;
+        float y = ((double) rand() / (RAND_MAX)) * 1000;
+        score->setPosition(x, y);
+        components.push_back(score);
     }
-
-/*
-	Fire *fire_2 = new Fire(this);
-	fire_2->setPosition(100, 0);
-	components.push_back(fire_2);*/
 
     for (auto & component : components)
         component->load(time);

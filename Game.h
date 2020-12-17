@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include "Component.h"
-#include "MainCharacter.h"
+#include "Pacman.h"
 
 class Game: public Component
 {
@@ -18,6 +18,6 @@ public:
 
 private:
 
-	MainCharacter* main_character;
+	Pacman* main_character;
 	std::vector<Component*> components;
 };

@@ -68,7 +68,7 @@ int main(int argc, char** argv)
 	glutInitWindowSize(800, 600);
 	glutCreateWindow("Game");
 
-	glClearColor(1.0, 1.0, 1.0, 0.0);
+	glClearColor(0,0,0,0);
 	init();
 
 	glutDisplayFunc(render);
