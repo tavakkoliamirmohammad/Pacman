@@ -1,20 +1,18 @@
-#include "Pacman.h"
-#include "SOIL.h"
-#include <iostream>
+#include "Ghost.h"
+#include <SOIL.h>;
 
-using namespace std;
 
-Pacman::Pacman(Component *parent) : Component(parent) {
+Ghost::Ghost(Component *parent) : Component(parent) {
 }
 
-void Pacman::load(int time) {
+void Ghost::load(int time) {
     Component::load(time);
 
     texture_id = SOIL_load_OGL_texture("/home/amir/projects/pacman_game/Sprites/pacman_sprite.png", SOIL_LOAD_AUTO,
                                        SOIL_CREATE_NEW_ID, SOIL_FLAG_INVERT_Y);
 }
 
-void Pacman::update(int time) {
+void Ghost::update(int time) {
     if (this->is_run) {
         this->frame = (time - this->start_move_time) / 100;
         switch (this->direction) {
@@ -37,7 +35,7 @@ void Pacman::update(int time) {
     }
 }
 
-void Pacman::render(int time) {
+void Ghost::render(int time) {
     auto f = (float) (this->frame % 3);
     auto tx_w = 48;
     auto tx_h = 64;
@@ -79,59 +77,16 @@ void Pacman::render(int time) {
     glPopMatrix();
 }
 
-void Pacman::setPosition(int x, int y) {
+void Ghost::setPosition(int x, int y) {
     this->x = x;
     this->y = y;
 }
 
-void Pacman::up(int time) {
-    if (this->is_run && this->direction == CharacterDirection::Up) {
-        return;
-    }
-
-    this->is_run = true;
-    this->start_move_time = time;
-    this->direction = CharacterDirection::Up;
-}
-
-void Pacman::down(int time) {
-    if (this->is_run && this->direction == CharacterDirection::Down) {
-        return;
-    }
-
-    this->is_run = true;
-    this->start_move_time = time;
-    this->direction = CharacterDirection::Down;
-}
-
-void Pacman::left(int time) {
-    if (this->is_run && this->direction == CharacterDirection::Left) {
-        return;
-    }
-
-    this->is_run = true;
-    this->start_move_time = time;
-    this->direction = CharacterDirection::Left;
-}
-
-void Pacman::right(int time) {
-    if (this->is_run && this->direction == CharacterDirection::Right) {
-        return;
-    }
-
-    this->is_run = true;
-    this->start_move_time = time;
-    this->direction = CharacterDirection::Right;
-}
-
-void Pacman::stop(int time) {
-//    this->is_run = false;
-}
-
-float Pacman::getX() const {
+float Ghost::getX() const {
     return x;
 }
 
-float Pacman::getY() const {
+float Ghost::getY() const {
     return y;
 }
+

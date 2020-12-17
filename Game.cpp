@@ -1,6 +1,9 @@
 #include "Game.h"
 #include "Fire.h"
 #include "Score.h"
+#include <iostream>
+
+using namespace std;
 
 Game::Game() : Component(NULL) {
     this->game = this;
@@ -16,23 +19,31 @@ void Game::load(int time) {
 
     for (int i = 0; i < 5; i++) {
         Score *score = new Score(this);
-        float x = ((double) rand() / (RAND_MAX)) * 1000;
-        float y = ((double) rand() / (RAND_MAX)) * 1000;
+        float x = (i + 1) * 100;
+        float y = (i + 1) * 100;
         score->setPosition(x, y);
         components.push_back(score);
     }
 
-    for (auto & component : components)
+    for (auto &component : components)
         component->load(time);
 }
 
 void Game::update(int time) {
-    for (auto & component : components)
+    for (auto &component : components)
         component->update(time);
+    Score *score;
+    for (auto iter = components.begin(); iter != components.end(); iter++) {
+        if ((score = dynamic_cast<Score *>(*iter)) != nullptr) {
+            if (abs(main_character->getX() - score->getX()) < 25 && abs(main_character->getY() - score->getY()) < 25) {
+                components.erase(iter--);
+            }
+        }
+    }
 }
 
 void Game::render(int time) {
-    for (auto & component : components)
+    for (auto &component : components)
         component->render(time);
 }
 

@@ -50,3 +50,11 @@ int Score::getScore() {
 void Score::setScore(int score) {
     this->score = score;
 }
+
+float Score::getX() const {
+    return x;
+}
+
+float Score::getY() const {
+    return y;
+}

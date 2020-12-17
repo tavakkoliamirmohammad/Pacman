@@ -20,6 +20,8 @@ public:
     int getScore();
 
     void setScore(int score);
+    float getX() const;
+    float getY() const;
 
 private:
     float x, y;
