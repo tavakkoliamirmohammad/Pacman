@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/pacman_game.dir/main.cpp.o  -o pacman_game 
