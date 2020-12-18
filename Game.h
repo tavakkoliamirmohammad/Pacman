@@ -26,5 +26,6 @@ private:
     static pair<float, float> getRandomPosition();
 
     Pacman *main_character;
+    int score = 0;
     std::vector<Component *> components;
 };

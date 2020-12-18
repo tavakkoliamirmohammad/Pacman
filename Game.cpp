@@ -82,6 +82,8 @@ void Game::update(int time) {
         if ((score = dynamic_cast<Score *>(*iter)) != nullptr) {
             if (abs(main_character->getX() - score->getX()) < 25 && abs(main_character->getY() - score->getY()) < 25) {
                 components.erase(iter--);
+                this->score += score->getScore();
+                cout << this->score << endl;
             }
         } else if ((ghost = dynamic_cast<Ghost *>(*iter)) != nullptr) {
             if (abs(main_character->getX() - ghost->getX()) < 25 && abs(main_character->getY() - ghost->getY()) < 25) {
