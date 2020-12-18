@@ -50,11 +50,11 @@ void reshape(int width, int height)
 	float aspestRatio = (float)width / height;
 	if (width > height)
 	{
-		gluOrtho2D(0, 1000 * aspestRatio, 0, 1000);
+		gluOrtho2D(0, 1000 , 0, 1000);
 	}
 	else
 	{
-		gluOrtho2D(0, 1000, 0, 1000 / aspestRatio);
+		gluOrtho2D(0, 1000, 0, 1000 );
 	}
 
 	glViewport(0, 0, width, height);

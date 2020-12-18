@@ -17,9 +17,7 @@ public:
 
     float getY() const;
 
-    bool isNextStateBlocked(float nextX, float nextY);
 
-    std::vector<Wall *> walls;
 
 protected:
     float x;

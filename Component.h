@@ -16,6 +16,8 @@ public:
 
     void virtual render(int time) = 0;
 
+    bool isNextStateBlocked(float nextX, float nextY);
+
 protected:
 
     int created_time;

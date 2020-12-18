@@ -14,20 +14,43 @@ void Ghost::load(int time) {
 
 void Ghost::update(int time) {
     this->frame = (time - this->start_move_time) / 100;
+    float x = this->x;
+    float y = this->y;
     switch (this->direction) {
         case CharacterDirection::Up:
-            this->y += this->frame * .1;
+            y += this->frame * .1;
             break;
         case CharacterDirection::Down:
-            this->y -= this->frame * .1;
+            y -= this->frame * .1;
             break;
         case CharacterDirection::Left:
-            this->x -= this->frame * .1;
+            x -= this->frame * .1;
             break;
         case CharacterDirection::Right:
         default:
-            this->x += this->frame * .1;
+            x += this->frame * .1;
             break;
+    }
+    if (!isNextStateBlocked(x, y)) {
+        this->x = x;
+        this->y = y;
+    } else {
+        switch (nextDirectionBlocked()) {
+            case None:
+                break;
+            case CharacterDirection::Up:
+                up(time);
+                break;
+            case CharacterDirection::Right:
+                right(time);
+                break;
+            case CharacterDirection::Down:
+                down(time);
+                break;
+            case CharacterDirection::Left:
+                left(time);
+                break;
+        }
     }
 }
 
@@ -85,4 +108,40 @@ Movable::CharacterDirection Ghost::nextDirectionBlocked() {
             return CharacterDirection::Up;
     }
     return CharacterDirection::Up;
+}
+
+void Ghost::up(int time) {
+    if (this->direction == CharacterDirection::Up) {
+        return;
+    }
+
+    this->start_move_time = time;
+    this->direction = CharacterDirection::Up;
+}
+
+void Ghost::down(int time) {
+    if (this->direction == CharacterDirection::Down) {
+        return;
+    }
+
+    this->start_move_time = time;
+    this->direction = CharacterDirection::Down;
+}
+
+void Ghost::left(int time) {
+    if (this->direction == CharacterDirection::Left) {
+        return;
+    }
+
+    this->start_move_time = time;
+    this->direction = CharacterDirection::Left;
+}
+
+void Ghost::right(int time) {
+    if (this->direction == CharacterDirection::Right) {
+        return;
+    }
+
+    this->start_move_time = time;
+    this->direction = CharacterDirection::Right;
 }

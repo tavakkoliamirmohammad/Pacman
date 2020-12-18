@@ -1,6 +1,5 @@
+#pragma once
 
-#ifndef PACMAN_GAME_WALL_H
-#define PACMAN_GAME_WALL_H
 
 #include "Component.h"
 
@@ -27,4 +26,3 @@ private:
     GLuint texture_id;
 };
 
-#endif //PACMAN_GAME_WALL_H

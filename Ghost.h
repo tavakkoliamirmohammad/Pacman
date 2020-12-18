@@ -17,6 +17,14 @@ public:
 
     CharacterDirection nextDirectionBlocked();
 
+    void up(int time);
+
+    void down(int time);
+
+    void left(int time);
+
+    void right(int time);
+
 
 private:
     GLuint texture_id;

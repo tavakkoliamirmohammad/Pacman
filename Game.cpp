@@ -1,9 +1,9 @@
 #include "Game.h"
-#include "Fire.h"
 #include "Score.h"
 #include "Ghost.h"
 #include "Map.h"
 #include "Wall.h"
+#include "GameState.h"
 #include <iostream>
 
 using namespace std;
@@ -16,8 +16,8 @@ Game::~Game() {
 }
 
 void Game::load(int time) {
+//    this->gameState = new GameState();
     this->main_character = new Pacman(this);
-    this->main_character->setPosition(500, 500);
     components.push_back(this->main_character);
 
 //    for (int i = 0; i < 5; i++) {
@@ -27,25 +27,34 @@ void Game::load(int time) {
 //        score->setPosition(x, y);
 //        components.push_back(score);
 //    }
+    vector<Ghost *> ghosts;
+    for (int i = 0; i < 5; i++) {
+        Ghost *ghost = new Ghost(this);
+        int x = ((double) rand() / (RAND_MAX)) * 25;
+        int y = ((double) rand() / (RAND_MAX)) * 25;
+        ghost->setPosition(y * 40, (24 - x) * 40);
+        components.push_back(ghost);
+        ghosts.push_back(ghost);
+    }
+    vector<Wall *> walls;
 
-//    for (int i = 0; i < 5; i++) {
-//        Ghost *ghost = new Ghost(this);
-//        float x = (i + 1) * 200;
-//        float y = (i + 1) * 140;
-//        ghost->setPosition(x, y);
-//        components.push_back(ghost);
-//    }
     for (int i = 0; i < 25; ++i) {
         for (int j = 0; j < 25; ++j) {
             if (Map::map[i][j] == 'B') {
                 Wall *wall = new Wall(this);
                 wall->setPosition(40 * j, 40 * (24 - i), 0);
                 components.push_back(wall);
-                main_character->walls.push_back(wall);
+                walls.push_back(wall);
             }
 
         }
     }
+    for (Wall *wall : walls) {
+        GameState::walls.push_back(wall);
+    }
+
+    this->main_character->setPosition(500, 500);
+
     for (auto &component : components)
         component->load(time);
 }
