@@ -5,6 +5,7 @@
 #include "Wall.h"
 #include "GameState.h"
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 
@@ -15,28 +16,10 @@ Game::Game() : Component(NULL) {
 Game::~Game() {
 }
 
-void Game::load(int time) {
-//    this->gameState = new GameState();
+void Game::load(int time1) {
+    srand(time(0));
     this->main_character = new Pacman(this);
     components.push_back(this->main_character);
-
-//    for (int i = 0; i < 5; i++) {
-//        Score *score = new Score(this);
-//        float x = (i + 1) * 100;
-//        float y = (i + 1) * 100;
-//        score->setPosition(x, y);
-//        components.push_back(score);
-//    }
-    vector<Ghost *> ghosts;
-    for (int i = 0; i < 5; i++) {
-        Ghost *ghost = new Ghost(this);
-        int x = ((double) rand() / (RAND_MAX)) * 25;
-        int y = ((double) rand() / (RAND_MAX)) * 25;
-        ghost->setPosition(y * 40, (24 - x) * 40);
-        components.push_back(ghost);
-        ghosts.push_back(ghost);
-    }
-    vector<Wall *> walls;
 
     for (int i = 0; i < 25; ++i) {
         for (int j = 0; j < 25; ++j) {
@@ -44,19 +27,47 @@ void Game::load(int time) {
                 Wall *wall = new Wall(this);
                 wall->setPosition(40 * j, 40 * (24 - i), 0);
                 components.push_back(wall);
-                walls.push_back(wall);
+                GameState::walls.push_back(wall);
             }
 
         }
     }
-    for (Wall *wall : walls) {
-        GameState::walls.push_back(wall);
+    for (int i = 0; i < 5; i++) {
+        Ghost *ghost = new Ghost(this);
+        int x = ((double) rand() / (RAND_MAX)) * 25;
+        int y = ((double) rand() / (RAND_MAX)) * 25;
+        while (GameState::isPositionBlocked(x * 40, y * 40)) {
+            x = ((double) rand() / (RAND_MAX)) * 25;
+            y = ((double) rand() / (RAND_MAX)) * 25;
+        }
+        ghost->setPosition(x * 40, y * 40);
+        components.push_back(ghost);
+        GameState::ghosts.push_back(ghost);
     }
 
-    this->main_character->setPosition(500, 500);
+    for (int i = 0; i < 5; i++) {
+        Score *score = new Score(this);
+        int x = ((double) rand() / (RAND_MAX)) * 25;
+        int y = ((double) rand() / (RAND_MAX)) * 25;
+        while (GameState::isPositionBlocked(x * 40, y * 40)) {
+            x = ((double) rand() / (RAND_MAX)) * 25;
+            y = ((double) rand() / (RAND_MAX)) * 25;
+        }
+        score->setPosition(x * 40, y * 40);
+        GameState::scores.push_back(score);
+        components.push_back(score);
+    }
+    int x = ((double) rand() / (RAND_MAX)) * 25;
+    int y = ((double) rand() / (RAND_MAX)) * 25;
+    while (GameState::isPositionBlocked(x * 40, y * 40)) {
+        x = ((double) rand() / (RAND_MAX)) * 25;
+        y = ((double) rand() / (RAND_MAX)) * 25;
+    }
+    this->main_character->setPosition(x * 40, y * 40);
+    GameState::pacmans.push_back(this->main_character);
 
     for (auto &component : components)
-        component->load(time);
+        component->load(time1);
 }
 
 void Game::update(int time) {

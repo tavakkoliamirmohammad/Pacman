@@ -25,6 +25,8 @@ public:
 
     void right(int time);
 
+    bool isNextStateBlocked(float nextX, float nextY);
+
 
 private:
     GLuint texture_id;

@@ -11,7 +11,7 @@ public:
         None = 0, Up = 1, Right = 2, Down = 3, Left = 4
     };
 
-    void setPosition(int x, int y);
+    void setPosition(float x, float y);
 
     float getX() const;
 

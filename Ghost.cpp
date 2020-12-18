@@ -1,6 +1,6 @@
 #include "Ghost.h"
 #include <SOIL.h>
-
+#include "GameState.h"
 
 Ghost::Ghost(Component *parent) : Component(parent) {
 }
@@ -144,4 +144,16 @@ void Ghost::right(int time) {
 
     this->start_move_time = time;
     this->direction = CharacterDirection::Right;
+}
+
+bool Ghost::isNextStateBlocked(float nextX, float nextY) {
+    if (Component::isNextStateBlocked(nextX, nextY)) {
+        return true;
+    }
+    for (Ghost *ghost : GameState::ghosts) {
+        if (ghost != this && abs(nextX - ghost->getX()) < 40 && abs(nextY - ghost->getY()) < 40) {
+            return true;
+        }
+    }
+    return false;
 }

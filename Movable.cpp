@@ -9,7 +9,7 @@ float Movable::getY() const {
     return y;
 }
 
-void Movable::setPosition(int x, int y) {
+void Movable::setPosition(float x, float y) {
     this->x = x;
     this->y = y;
 }

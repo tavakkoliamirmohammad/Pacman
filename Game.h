@@ -11,7 +11,7 @@ public:
 
     ~Game();
 
-    void load(int time);
+    void load(int time1);
 
     void update(int time);
 
