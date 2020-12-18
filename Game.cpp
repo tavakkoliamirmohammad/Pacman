@@ -1,5 +1,6 @@
 #include "Game.h"
-#include "Score.h"
+#include "YellowScore.h"
+#include "BlueScore.h"
 #include "Ghost.h"
 #include "Map.h"
 #include "Wall.h"
@@ -41,7 +42,14 @@ void Game::load(int time1) {
     }
 
     for (int i = 0; i < 5; i++) {
-        Score *score = new Score(this);
+        Score *score = new YellowScore(this);
+        pair<float, float> point = getRandomPosition();
+        score->setPosition(point.first, point.second);
+        GameState::scores.push_back(score);
+        components.push_back(score);
+    }
+    for (int i = 0; i < 5; i++) {
+        Score *score = new BlueScore(this);
         pair<float, float> point = getRandomPosition();
         score->setPosition(point.first, point.second);
         GameState::scores.push_back(score);

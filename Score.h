@@ -9,7 +9,7 @@ class Score : public Component {
 public:
     Score(Component *parent);
 
-    void load(int time);
+    virtual void load(int time) = 0;
 
     void update(int time);
 
@@ -19,11 +19,10 @@ public:
 
     int getScore();
 
-    void setScore(int score);
     float getX() const;
     float getY() const;
 
-private:
+protected:
     float x, y;
     int score;
     GLuint texture_id;

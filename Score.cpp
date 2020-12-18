@@ -7,9 +7,6 @@ Score::Score(Component *parent) : Component(parent) {
 
 void Score::load(int time) {
     Component::load(time);
-
-    texture_id = SOIL_load_OGL_texture("/home/amir/projects/pacman_game/Sprites/dot.png", SOIL_LOAD_AUTO,
-                                       SOIL_CREATE_NEW_ID, SOIL_FLAG_INVERT_Y);
 }
 
 void Score::update(int time) {
@@ -45,10 +42,6 @@ void Score::setPosition(float x, float y) {
 
 int Score::getScore() {
     return this->score;
-}
-
-void Score::setScore(int score) {
-    this->score = score;
 }
 
 float Score::getX() const {

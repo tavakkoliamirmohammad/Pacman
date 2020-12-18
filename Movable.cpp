@@ -1,5 +1,4 @@
 #include "Movable.h"
-#include "Map.h"
 
 float Movable::getX() const {
     return x;
