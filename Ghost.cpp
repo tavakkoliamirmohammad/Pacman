@@ -8,7 +8,7 @@ Ghost::Ghost(Component *parent) : Component(parent) {
 void Ghost::load(int time) {
     Component::load(time);
 
-    texture_id = SOIL_load_OGL_texture("./Sprites/ghost_sprite.png", SOIL_LOAD_AUTO,
+    texture_id = SOIL_load_OGL_texture("/home/amir/projects/pacman_game/Sprites/ghost_sprite.png", SOIL_LOAD_AUTO,
                                        SOIL_CREATE_NEW_ID, SOIL_FLAG_INVERT_Y);
 }
 
@@ -18,17 +18,17 @@ void Ghost::update(int time) {
     float y = this->y;
     switch (this->direction) {
         case CharacterDirection::Up:
-            y += .2;
+            y += this->frame * .1;
             break;
         case CharacterDirection::Down:
-            y -= .2;
+            y -= this->frame * .1;
             break;
         case CharacterDirection::Left:
-            x -= .2;
+            x -= this->frame * .1;
             break;
         case CharacterDirection::Right:
         default:
-            x += .2;
+            x += this->frame * .1;
             break;
     }
     if (!isNextStateBlocked(x, y)) {

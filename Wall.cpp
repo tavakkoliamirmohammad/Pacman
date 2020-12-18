@@ -16,7 +16,7 @@ float Wall::getY() {
 void Wall::load(int time) {
     Component::load(time);
 
-    texture_id = SOIL_load_OGL_texture("./Sprites/stone.png", SOIL_LOAD_AUTO,
+    texture_id = SOIL_load_OGL_texture("/home/amir/projects/pacman_game/Sprites/stone.png", SOIL_LOAD_AUTO,
                                        SOIL_CREATE_NEW_ID,
                                        SOIL_FLAG_INVERT_Y);
 }
