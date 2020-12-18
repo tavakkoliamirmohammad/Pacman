@@ -126,5 +126,5 @@ void Pacman::right(int time) {
 }
 
 void Pacman::stop(int time) {
-//    this->is_run = false;
+    this->is_run = false;
 }

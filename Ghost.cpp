@@ -18,17 +18,17 @@ void Ghost::update(int time) {
     float y = this->y;
     switch (this->direction) {
         case CharacterDirection::Up:
-            y += this->frame * .1;
+            y += .2;
             break;
         case CharacterDirection::Down:
-            y -= this->frame * .1;
+            y -= .2;
             break;
         case CharacterDirection::Left:
-            x -= this->frame * .1;
+            x -= .2;
             break;
         case CharacterDirection::Right:
         default:
-            x += this->frame * .1;
+            x += .2;
             break;
     }
     if (!isNextStateBlocked(x, y)) {
