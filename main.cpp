@@ -3,79 +3,71 @@
 
 Game game;
 
-void render()
-{
-	glClear(GL_COLOR_BUFFER_BIT);
+void render() {
+    glClear(GL_COLOR_BUFFER_BIT);
 
-	int time = glutGet(GLUT_ELAPSED_TIME);
+    int time = glutGet(GLUT_ELAPSED_TIME);
     game.update(time);
     game.render(time);
 
-	glutSwapBuffers();
+    glutSwapBuffers();
 }
 
-void init()
-{
-	int time = glutGet(GLUT_ELAPSED_TIME);
+void init() {
+    int time = glutGet(GLUT_ELAPSED_TIME);
 
-	glEnable(GL_BLEND);
-	glEnable(GL_TEXTURE_2D);
-
-	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
-
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_TEXTURE_2D);
+    glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
     game.load(time);
 }
 
-void keyboard(int key, int x, int y)
-{
-	int time = glutGet(GLUT_ELAPSED_TIME);
+void keyboard(int key, int x, int y) {
+    int time = glutGet(GLUT_ELAPSED_TIME);
 
-	game.keyboard(time, key, x, y);
+    game.keyboard(time, key, x, y);
 }
 
-void keyboard_up(int key, int x, int y)
-{
-	int time = glutGet(GLUT_ELAPSED_TIME);
+void keyboard_up(int key, int x, int y) {
+    int time = glutGet(GLUT_ELAPSED_TIME);
 
-	game.keyboard_up(time, key, x, y);
+    game.keyboard_up(time, key, x, y);
 }
 
-void reshape(int width, int height)
-{
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
+void reshape(int width, int height) {
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
 
-	float aspestRatio = (float)width / height;
-	if (width > height)
-	{
-		gluOrtho2D(0, 1000 , 0, 1000);
-	}
-	else
-	{
-		gluOrtho2D(0, 1000, 0, 1000 );
-	}
+    float aspestRatio = (float) width / height;
+    if (width > height) {
+        gluOrtho2D(0, 1300, 0, 1000);
+    } else {
+        gluOrtho2D(0, 1300, 0, 1000);
+    }
 
-	glViewport(0, 0, width, height);
+    glViewport(0, 0, width, height);
 }
 
-int main(int argc, char** argv)
-{
-	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
+void keyboardFunc(unsigned char key, int x, int y){
+    game.keyboardFunc(key);
+}
+int main(int argc, char **argv) {
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
 
-	glutInitWindowSize(800, 600);
-	glutCreateWindow("Game");
+    glutInitWindowSize(800, 600);
+    glutCreateWindow("Game");
 
-	glClearColor(0,0,0,0);
-	init();
+    glClearColor(0, 0, 0, 0);
+    init();
 
-	glutDisplayFunc(render);
-	glutIdleFunc(render);
-	glutReshapeFunc(reshape);
-	glutSpecialFunc(keyboard);
-	glutSpecialUpFunc(keyboard_up);
+    glutDisplayFunc(render);
+    glutIdleFunc(render);
+    glutReshapeFunc(reshape);
+    glutKeyboardFunc(keyboardFunc);
+    glutSpecialFunc(keyboard);
+    glutSpecialUpFunc(keyboard_up);
 
-	glutMainLoop();
+    glutMainLoop();
 }

@@ -7,6 +7,7 @@
 #include "GameState.h"
 #include <iostream>
 #include <ctime>
+#include <string>
 
 using namespace std;
 
@@ -88,14 +89,33 @@ void Game::update(int time) {
         } else if ((ghost = dynamic_cast<Ghost *>(*iter)) != nullptr) {
             if (abs(main_character->getX() - ghost->getX()) < 25 && abs(main_character->getY() - ghost->getY()) < 25) {
                 components.erase(iter--);
+                gameState = GameRunningState::GAME_OVER;
             }
         }
     }
 }
 
+void Game::showText(float r, float g, float b, int x, int y, string text, void *font) {
+    glColor4f(r, g, b, 1);
+    glRasterPos2f(x, y);
+    for (char i : text) {
+        glutBitmapCharacter(font, i);
+    }
+}
+
 void Game::render(int time) {
+    if (gameState == GameRunningState::GAME_OVER) {
+        showText(1, 0, 0, 500, 500, "GAME OVER!", GLUT_BITMAP_TIMES_ROMAN_24);
+        return;
+    }
+    showText(1, 0, 0, 1050, 900, "TOTAL SCORE", GLUT_BITMAP_HELVETICA_18);
+    showText(1, 0, 0, 1150, 800, to_string(game->score), GLUT_BITMAP_TIMES_ROMAN_24);
+
+    glEnable(GL_TEXTURE_2D);
+    glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
     for (auto &component : components)
         component->render(time);
+    glDisable(GL_TEXTURE_2D);
 }
 
 void Game::keyboard(int time, int key, int x, int y) {
@@ -117,4 +137,10 @@ void Game::keyboard(int time, int key, int x, int y) {
 
 void Game::keyboard_up(int time, int key, int x, int y) {
     this->main_character->stop(time);
+}
+
+void Game::keyboardFunc(char key) {
+    if(key == 'q'){
+        exit(0);
+    }
 }
