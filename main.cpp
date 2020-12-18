@@ -14,6 +14,7 @@ void render() {
 }
 
 void init() {
+    glutSetKeyRepeat(GLUT_KEY_REPEAT_OFF);
     int time = glutGet(GLUT_ELAPSED_TIME);
 
     glEnable(GL_BLEND);
@@ -61,7 +62,6 @@ int main(int argc, char **argv) {
 
     glClearColor(0, 0, 0, 0);
     init();
-
     glutDisplayFunc(render);
     glutIdleFunc(render);
     glutReshapeFunc(reshape);

@@ -21,17 +21,17 @@ void Pacman::update(int time) {
         float y = this->y;
         switch (this->direction) {
             case CharacterDirection::Up:
-                y += .1;
+                y += this->frame * .05;
                 break;
             case CharacterDirection::Down:
-                y -= .1;
+                y -= this->frame * .05;
                 break;
             case CharacterDirection::Left:
-                x -= .1;
+                x -= this->frame * .05;
                 break;
             case CharacterDirection::Right:
             default:
-                x += .1;
+                x += this->frame * .05;
                 break;
         }
         if (!isNextStateBlocked(x, y)) {
