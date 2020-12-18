@@ -17,20 +17,26 @@ void Pacman::load(int time) {
 void Pacman::update(int time) {
     if (this->is_run) {
         this->frame = (time - this->start_move_time) / 100;
+        float x = this->x;
+        float y = this->y;
         switch (this->direction) {
             case CharacterDirection::Up:
-                this->y += this->frame * .1;
+                y += this->frame * .1;
                 break;
             case CharacterDirection::Down:
-                this->y -= this->frame * .1;
+                y -= this->frame * .1;
                 break;
             case CharacterDirection::Left:
-                this->x -= this->frame * .1;
+                x -= this->frame * .1;
                 break;
             case CharacterDirection::Right:
             default:
-                this->x += this->frame * .1;
+                x += this->frame * .1;
                 break;
+        }
+        if (!isNextStateBlocked(x, y)) {
+            this->x = x;
+            this->y = y;
         }
     } else {
         this->frame = 0;
@@ -39,8 +45,8 @@ void Pacman::update(int time) {
 
 void Pacman::render(int time) {
     auto f = (float) (this->frame % 3);
-    auto tx_w = 48;
-    auto tx_h = 64;
+    auto tx_w = 40;
+    auto tx_h = 40;
     auto tx_x = f / 3.0;
     auto tx_y = 3.0 / 4;
 

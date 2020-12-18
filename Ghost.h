@@ -15,6 +15,8 @@ public:
 
     void render(int time);
 
+    CharacterDirection nextDirectionBlocked();
+
 
 private:
     GLuint texture_id;

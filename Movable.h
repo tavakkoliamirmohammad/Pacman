@@ -14,6 +14,8 @@ public:
 
     float getY() const;
 
+    bool isNextStateBlocked(float nextX, float nextY);
+
 
 protected:
     float x;
@@ -22,7 +24,6 @@ protected:
     int start_move_time;
     CharacterDirection direction;
 };
-
 
 
 #endif //PACMAN_GAME_MOVABLE_H

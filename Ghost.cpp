@@ -72,3 +72,16 @@ void Ghost::render(int time) {
 
     glPopMatrix();
 }
+
+Movable::CharacterDirection Ghost::nextDirectionBlocked() {
+    switch (this->direction) {
+        case CharacterDirection::Up:
+            return CharacterDirection::Right;
+        case CharacterDirection::Right:
+            return CharacterDirection::Down;
+        case CharacterDirection::Down:
+            return CharacterDirection::Left;
+        case CharacterDirection::Left:
+            return CharacterDirection::Up;
+    }
+}
