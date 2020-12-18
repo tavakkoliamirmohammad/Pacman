@@ -23,6 +23,7 @@ public:
 
 
 private:
+    static pair<float, float> getRandomPosition();
 
     Pacman *main_character;
     std::vector<Component *> components;

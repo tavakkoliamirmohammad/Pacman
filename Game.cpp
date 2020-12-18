@@ -34,40 +34,35 @@ void Game::load(int time1) {
     }
     for (int i = 0; i < 5; i++) {
         Ghost *ghost = new Ghost(this);
-        int x = ((double) rand() / (RAND_MAX)) * 25;
-        int y = ((double) rand() / (RAND_MAX)) * 25;
-        while (GameState::isPositionBlocked(x * 40, y * 40)) {
-            x = ((double) rand() / (RAND_MAX)) * 25;
-            y = ((double) rand() / (RAND_MAX)) * 25;
-        }
-        ghost->setPosition(x * 40, y * 40);
+        pair<float, float> point = getRandomPosition();
+        ghost->setPosition(point.first, point.second);
         components.push_back(ghost);
         GameState::ghosts.push_back(ghost);
     }
 
     for (int i = 0; i < 5; i++) {
         Score *score = new Score(this);
-        int x = ((double) rand() / (RAND_MAX)) * 25;
-        int y = ((double) rand() / (RAND_MAX)) * 25;
-        while (GameState::isPositionBlocked(x * 40, y * 40)) {
-            x = ((double) rand() / (RAND_MAX)) * 25;
-            y = ((double) rand() / (RAND_MAX)) * 25;
-        }
-        score->setPosition(x * 40, y * 40);
+        pair<float, float> point = getRandomPosition();
+        score->setPosition(point.first, point.second);
         GameState::scores.push_back(score);
         components.push_back(score);
     }
-    int x = ((double) rand() / (RAND_MAX)) * 25;
-    int y = ((double) rand() / (RAND_MAX)) * 25;
-    while (GameState::isPositionBlocked(x * 40, y * 40)) {
-        x = ((double) rand() / (RAND_MAX)) * 25;
-        y = ((double) rand() / (RAND_MAX)) * 25;
-    }
-    this->main_character->setPosition(x * 40, y * 40);
+    pair<float, float> point = getRandomPosition();
+    this->main_character->setPosition(point.first, point.second);
     GameState::pacmans.push_back(this->main_character);
 
     for (auto &component : components)
         component->load(time1);
+}
+
+pair<float, float> Game::getRandomPosition() {
+    float x = ((double) rand() / (RAND_MAX)) * 25;
+    float y = ((double) rand() / (RAND_MAX)) * 25;
+    while (GameState::isPositionBlocked(x * 40, y * 40)) {
+        x = ((double) rand() / (RAND_MAX)) * 25;
+        y = ((double) rand() / (RAND_MAX)) * 25;
+    }
+    return make_pair(x * 40, y * 40);
 }
 
 void Game::update(int time) {
