@@ -15,5 +15,10 @@ void Movable::setPosition(int x, int y) {
 }
 
 bool Movable::isNextStateBlocked(float nextX, float nextY) {
-    return Map::isBlocked(nextX, nextY);
+    for (auto &wall : this->walls) {
+        if (abs(nextX - wall->getX()) < 40 && abs(nextY - wall->getY()) < 40) {
+            return true;
+        }
+    }
+    return false;
 }

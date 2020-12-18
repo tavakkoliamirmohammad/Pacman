@@ -1,6 +1,9 @@
 #ifndef PACMAN_GAME_MOVABLE_H
 #define PACMAN_GAME_MOVABLE_H
 
+#include "Wall.h"
+#include <vector>
+
 class Movable {
 public:
 
@@ -16,6 +19,7 @@ public:
 
     bool isNextStateBlocked(float nextX, float nextY);
 
+    std::vector<Wall *> walls;
 
 protected:
     float x;
@@ -23,6 +27,7 @@ protected:
 
     int start_move_time;
     CharacterDirection direction;
+
 };
 
 

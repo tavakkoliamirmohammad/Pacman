@@ -17,8 +17,8 @@ void Score::update(int time) {
 }
 
 void Score::render(int time) {
-    auto tx_w = 64;
-    auto tx_h = 64;
+    auto tx_w = 40;
+    auto tx_h = 40;
 
     glBindTexture(GL_TEXTURE_2D, texture_id);
     glPushMatrix();

@@ -33,8 +33,8 @@ void Ghost::update(int time) {
 
 void Ghost::render(int time) {
     auto f = (float) (this->frame % 2);
-    auto tx_w = 48;
-    auto tx_h = 48;
+    auto tx_w = 40;
+    auto tx_h = 40;
     auto tx_x = f / 2;
     auto tx_y = 3.0 / 4;
 
@@ -84,4 +84,5 @@ Movable::CharacterDirection Ghost::nextDirectionBlocked() {
         case CharacterDirection::Left:
             return CharacterDirection::Up;
     }
+    return CharacterDirection::Up;
 }

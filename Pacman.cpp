@@ -34,7 +34,7 @@ void Pacman::update(int time) {
                 x += this->frame * .1;
                 break;
         }
-        if (!isNextStateBlocked(x, y)) {
+        if(!isNextStateBlocked(x, y)){
             this->x = x;
             this->y = y;
         }
