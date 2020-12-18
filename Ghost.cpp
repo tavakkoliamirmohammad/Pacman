@@ -72,17 +72,3 @@ void Ghost::render(int time) {
 
     glPopMatrix();
 }
-
-void Ghost::setPosition(int x, int y) {
-    this->x = x;
-    this->y = y;
-}
-
-float Ghost::getX() const {
-    return x;
-}
-
-float Ghost::getY() const {
-    return y;
-}
-

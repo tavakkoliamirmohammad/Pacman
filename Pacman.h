@@ -3,13 +3,10 @@
 
 
 #include "Component.h"
+#include "Movable.h"
 
-class Pacman : public Component {
+class Pacman : public Component, public Movable {
 public:
-
-    enum CharacterDirection {
-        None = 0, Up = 1, Right = 2, Down = 3, Left = 4
-    };
 
     Pacman(Component *parent);
 
@@ -18,8 +15,6 @@ public:
     void update(int time);
 
     void render(int time);
-
-    void setPosition(int x, int y);
 
     void up(int time);
 
@@ -31,19 +26,12 @@ public:
 
     void stop(int time);
 
-    float getX() const;
-
-    float getY() const;
-
 
 private:
-    float x;
-    float y;
+
     GLuint texture_id;
     int frame;
 
-    int start_move_time;
-    CharacterDirection direction;
     bool is_run = false;
 };
 

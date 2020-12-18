@@ -79,11 +79,6 @@ void Pacman::render(int time) {
     glPopMatrix();
 }
 
-void Pacman::setPosition(int x, int y) {
-    this->x = x;
-    this->y = y;
-}
-
 void Pacman::up(int time) {
     if (this->is_run && this->direction == CharacterDirection::Up) {
         return;
@@ -126,12 +121,4 @@ void Pacman::right(int time) {
 
 void Pacman::stop(int time) {
 //    this->is_run = false;
-}
-
-float Pacman::getX() const {
-    return x;
-}
-
-float Pacman::getY() const {
-    return y;
 }
