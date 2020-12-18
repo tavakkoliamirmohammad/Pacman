@@ -8,7 +8,7 @@ Ghost::Ghost(Component *parent) : Component(parent) {
 void Ghost::load(int time) {
     Component::load(time);
 
-    texture_id = SOIL_load_OGL_texture("/home/amir/projects/pacman_game/Sprites/ghost_sprite.png", SOIL_LOAD_AUTO,
+    texture_id = SOIL_load_OGL_texture("./Sprites/ghost_sprite.png", SOIL_LOAD_AUTO,
                                        SOIL_CREATE_NEW_ID, SOIL_FLAG_INVERT_Y);
 }
 

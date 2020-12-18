@@ -54,8 +54,3 @@ char Map::map[25][25] = {
         'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',
         'B', 'B', 'B', 'B',
 };
-
-bool Map::isBlocked(float x, float y) {
-    cout << 24 - (int) y / 40 << '\t' << (int) x / 40 << endl;
-    return map[24 - (int) y / 40][(int) x / 40] == 'B';
-}
