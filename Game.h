@@ -27,7 +27,7 @@ public:
 
 private:
     enum GameRunningState {
-        RUNNING, GAME_OVER
+        RUNNING, GAME_OVER, WIN
     };
 
     static pair<float, float> getRandomPosition();

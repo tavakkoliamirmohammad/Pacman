@@ -42,14 +42,14 @@ void Game::load(int time1) {
         GameState::ghosts.push_back(ghost);
     }
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 0; i++) {
         Score *score = new YellowScore(this);
         pair<float, float> point = getRandomPosition();
         score->setPosition(point.first, point.second);
         GameState::scores.push_back(score);
         components.push_back(score);
     }
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 1; i++) {
         Score *score = new BlueScore(this);
         pair<float, float> point = getRandomPosition();
         score->setPosition(point.first, point.second);
@@ -79,18 +79,24 @@ void Game::update(int time) {
         component->update(time);
     Score *score;
     Ghost *ghost;
+    bool score_found = false;
     for (auto iter = components.begin(); iter != components.end(); iter++) {
+        score_found = false;
         if ((score = dynamic_cast<Score *>(*iter)) != nullptr) {
             if (abs(main_character->getX() - score->getX()) < 25 && abs(main_character->getY() - score->getY()) < 25) {
                 components.erase(iter--);
                 this->score += score->getScore();
             }
+            score_found = true;
         } else if ((ghost = dynamic_cast<Ghost *>(*iter)) != nullptr) {
             if (abs(main_character->getX() - ghost->getX()) < 25 && abs(main_character->getY() - ghost->getY()) < 25) {
                 components.erase(iter--);
                 gameState = GameRunningState::GAME_OVER;
             }
         }
+    }
+    if(!score_found){
+        gameState = GameRunningState::WIN;
     }
 }
 
@@ -107,17 +113,21 @@ void Game::render(int time) {
         showText(1, 0, 0, 500, 500, "GAME OVER!", GLUT_BITMAP_TIMES_ROMAN_24);
         return;
     }
-    showText(1, 0, 0, 1050, 900, "TOTAL SCORE", GLUT_BITMAP_HELVETICA_18);
-    showText(1, 0, 1, 1150, 850, to_string(game->score), GLUT_BITMAP_TIMES_ROMAN_24);
-    showText(0, 1, 0, 1050, 600, "Press R to rest", GLUT_BITMAP_HELVETICA_18);
-    showText(0, 1, 0, 1050, 650, "Press q to quit", GLUT_BITMAP_HELVETICA_18);
 
-
-    glEnable(GL_TEXTURE_2D);
-    glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
-    for (auto &component : components)
-        component->render(time);
-    glDisable(GL_TEXTURE_2D);
+    if (gameState == GameRunningState::WIN) {
+        showText(1, 1, 0, 450, 500, "YOU ARE THE WINNER!", GLUT_BITMAP_TIMES_ROMAN_24);
+        return;
+    }else{
+        showText(1, 0, 0, 1050, 900, "TOTAL SCORE", GLUT_BITMAP_HELVETICA_18);
+        showText(1, 0, 1, 1150, 850, to_string(game->score), GLUT_BITMAP_TIMES_ROMAN_24);
+        showText(0, 1, 0, 1050, 600, "Press R to rest", GLUT_BITMAP_HELVETICA_18);
+        showText(0, 1, 0, 1050, 650, "Press q to quit", GLUT_BITMAP_HELVETICA_18);
+        glEnable(GL_TEXTURE_2D);
+        glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
+        for (auto &component : components)
+            component->render(time);
+        glDisable(GL_TEXTURE_2D);
+    }
 }
 
 void Game::keyboard(int time, int key, int x, int y) {
