@@ -38,4 +38,6 @@ private:
     GameRunningState gameState = GameRunningState::RUNNING;
     int score = 0;
     std::vector<Component *> components;
+
+    void reset();
 };

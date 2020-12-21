@@ -40,12 +40,7 @@ void reshape(int width, int height) {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
 
-    float aspestRatio = (float) width / height;
-    if (width > height) {
-        gluOrtho2D(0, 1300, 0, 1000);
-    } else {
-        gluOrtho2D(0, 1300, 0, 1000);
-    }
+    gluOrtho2D(0, 1300, 0, 1000);
 
     glViewport(0, 0, width, height);
 }
@@ -58,7 +53,7 @@ int main(int argc, char **argv) {
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
 
     glutInitWindowSize(800, 600);
-    glutCreateWindow("Game");
+    glutCreateWindow("Pacman 2020");
 
     glClearColor(0, 0, 0, 0);
     init();

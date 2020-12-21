@@ -108,7 +108,10 @@ void Game::render(int time) {
         return;
     }
     showText(1, 0, 0, 1050, 900, "TOTAL SCORE", GLUT_BITMAP_HELVETICA_18);
-    showText(1, 0, 0, 1150, 800, to_string(game->score), GLUT_BITMAP_TIMES_ROMAN_24);
+    showText(1, 0, 1, 1150, 850, to_string(game->score), GLUT_BITMAP_TIMES_ROMAN_24);
+    showText(0, 1, 0, 1050, 600, "Press R to rest", GLUT_BITMAP_HELVETICA_18);
+    showText(0, 1, 0, 1050, 650, "Press q to quit", GLUT_BITMAP_HELVETICA_18);
+
 
     glEnable(GL_TEXTURE_2D);
     glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
@@ -139,7 +142,19 @@ void Game::keyboard_up(int time, int key, int x, int y) {
 }
 
 void Game::keyboardFunc(char key) {
-    if(key == 'q'){
+    if (key == 'q') {
         exit(0);
+    } else if (key == 'r') {
+        reset();
     }
+}
+
+void Game::reset() {
+    GameState::pacmans.clear();
+    GameState::walls.clear();
+    GameState::ghosts.clear();
+    GameState::scores.clear();
+    components.clear();
+    int time = glutGet(GLUT_ELAPSED_TIME);
+    load(time);
 }
