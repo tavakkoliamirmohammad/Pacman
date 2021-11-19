@@ -42,14 +42,14 @@ void Game::load(int time1) {
         GameState::ghosts.push_back(ghost);
     }
 
-    for (int i = 0; i < 0; i++) {
+    for (int i = 0; i < 6; i++) {
         Score *score = new YellowScore(this);
         pair<float, float> point = getRandomPosition();
         score->setPosition(point.first, point.second);
         GameState::scores.push_back(score);
         components.push_back(score);
     }
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 6; i++) {
         Score *score = new BlueScore(this);
         pair<float, float> point = getRandomPosition();
         score->setPosition(point.first, point.second);
